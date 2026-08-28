@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clutch — Gizlilik Politikası</title>
+<meta name="description" content="Clutch sürüş uygulamasının gizlilik politikası: hangi veriler işleniyor, nereye gidiyor, hakların neler.">
+<style>
+  :root {
+    --zemin: #ffffff; --kagit: #f7f6f4; --metin: #16181a; --soluk: #5c6266;
+    --cizgi: #e3e0dc; --vurgu: #8a6414; --kod-zemin: #f0eeea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --zemin: #0e1113; --kagit: #171b1e; --metin: #e8e6e3; --soluk: #9aa1a6;
+      --cizgi: #2a2f33; --vurgu: #ffd37a; --kod-zemin: #1e2327;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--zemin); color: var(--metin);
+    font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+  h1 {
+    font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.2; margin: 0 0 1.5rem;
+    letter-spacing: -0.02em; text-wrap: balance;
+  }
+  h2 {
+    font-size: 1.25rem; margin: 2.75rem 0 0.75rem; letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  h3 { font-size: 1rem; margin: 1.75rem 0 0.5rem; color: var(--soluk);
+       text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+  p, li { margin: 0.75rem 0; }
+  ul { padding-left: 1.25rem; }
+  hr { border: 0; border-top: 1px solid var(--cizgi); margin: 2.5rem 0; }
+  a { color: var(--vurgu); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--vurgu); outline-offset: 2px; border-radius: 2px; }
+  code {
+    background: var(--kod-zemin); padding: 0.1em 0.36em; border-radius: 3px;
+    font: 0.88em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  strong { font-weight: 650; }
+  .kaydir { overflow-x: auto; margin: 1.25rem 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+  th, td {
+    text-align: left; padding: 0.6rem 0.85rem; border-bottom: 1px solid var(--cizgi);
+    vertical-align: top;
+  }
+  th { background: var(--kagit); font-weight: 600; white-space: nowrap; }
+  footer {
+    margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--cizgi);
+    color: var(--soluk); font-size: 0.875rem;
+  }
+</style>
+</head>
+<body>
+<main>
+<h1>Clutch — Gizlilik Politikası</h1>
+<p><strong>Son güncelleme:</strong> 28 Ağustos 2026 <strong>Uygulama:</strong> Clutch (<code>com.clutch.app</code>) <strong>Sorumlu:</strong> Ömer Adıgüzel — <a href="mailto:hobalago21@gmail.com">hobalago21@gmail.com</a></p>
+<hr>
+<h2>Kısası</h2>
+<p>Clutch <strong>hesap istemez, reklam göstermez, analitik toplamaz ve verilerinizi kendi sunucularına göndermez</strong> — çünkü sunucusu yoktur.</p>
+<p>Sürüşleriniz, rotalarınız ve puanlarınız <strong>yalnızca telefonunuzda</strong> durur. Uygulamayı silerseniz hepsi silinir.</p>
+<p>Dışarıya çıkan tek şey <strong>harita hizmeti için gereken koordinatlardır</strong> ve o da haritayı çizmek, rotanızı yola oturtmak ve adres aramak içindir.</p>
+<hr>
+<h2>1. Hangi verileri işliyoruz</h2>
+<h3>1.1 Konum (hassas ve yaklaşık)</h3>
+<p><strong>Neden:</strong> Clutch bir sürüş uygulamasıdır. Nerede olduğunuzu bilmeden ne haritayı gösterebilir, ne rotanızı çizebilir, ne de sürüşünüzü ölçebilir.</p>
+<p><strong>Ne zaman:</strong> Uygulama <strong>açık ve ön plandayken.</strong> Arka planda ya da ekran kapalıyken konumunuz okunmaz — uygulamanın arka plan kaydı özelliği yoktur.</p>
+<p><strong>Nereye gider:</strong></p>
+<ul>
+<li><strong>Telefonunuzda kalır:</strong> sürüş kayıtlarınız (<code>runs/</code>) ve rotalarınız.</li>
+<li><strong>Mapbox'a gider:</strong> haritayı çizmek, çizdiğiniz rotayı yola oturtmak ve</li>
+</ul>
+<p>adres aramak için gereken koordinatlar. Ayrıntı: bölüm 3.</p>
+<h3>1.2 Hareket sensörleri (ivmeölçer / jiroskop)</h3>
+<p><strong>Neden:</strong> Sürüşünüzün akıcılığını ölçmek için. GPS saniyede bir örnek verir ve sert bir frenin tamamını kaçırır; hareket sensörü saniyede 50 örnek verir ve o anı görür.</p>
+<p><strong>Nereye gider:</strong> <strong>Yalnızca telefonunuzda kalır.</strong> Hiçbir yere gönderilmez.</p>
+<h3>1.3 Cihaz bilgisi</h3>
+<p>Marka, model ve işletim sistemi sürümü. <strong>Yalnızca hata ayıklama paketine</strong> yazılır (bölüm 4) ve o paketi siz göndermedikçe telefonunuzdan çıkmaz.</p>
+<p><strong>Kimlik bilgisi toplanmaz:</strong> cihaz kimliği, reklam kimliği, IMEI, telefon numarası, e-posta — hiçbiri okunmaz.</p>
+<h3>1.4 Hata kayıtları</h3>
+<p>Uygulama beklenmedik şekilde durursa hatanın metni ve teknik izi telefonunuza yazılır. İçinde konum yoktur, kimlik yoktur.</p>
+<p><strong>Yalnızca telefonunuzda kalır</strong> ve siz bir hata ayıklama paketi göndermeye karar vermedikçe çıkmaz.</p>
+<hr>
+<h2>2. Hangi verileri işlemiyoruz</h2>
+<ul>
+<li>Hesap, kullanıcı adı, şifre — <strong>yok</strong></li>
+<li>Reklam ve reklam kimliği — <strong>yok</strong></li>
+<li>Analitik, kullanım takibi, üçüncü taraf izleyici — <strong>yok</strong></li>
+<li>Rehber, arama geçmişi, mesaj, fotoğraf, dosya erişimi — <strong>yok</strong></li>
+<li>Ödeme bilgisi — <strong>yok</strong></li>
+</ul>
+<hr>
+<h2>3. Üçüncü taraf: Mapbox</h2>
+<p>Clutch haritayı, rota hesabını ve adres aramasını <strong>Mapbox</strong> üzerinden yapar. Mapbox'a giden şeyler:</p>
+<div class="kaydir"><table><tr><th>ne zaman</th><th>ne gider</th></tr><tr><td>harita görüntülenirken</td><td>baktığınız harita bölgesinin koordinatları</td></tr><tr><td>rota çizerken</td><td>koyduğunuz noktaların koordinatları</td></tr><tr><td>adres ararken</td><td>yazdığınız arama metni ve yaklaşık konumunuz</td></tr></table></div>
+<p>Mapbox bu verileri kendi gizlilik politikası kapsamında işler: <a href="https://www.mapbox.com/legal/privacy">https://www.mapbox.com/legal/privacy</a></p>
+<p><strong>Sürüş kaydınızın tamamı Mapbox'a gitmez</strong> — yalnızca yukarıdaki üç durumda, o işlem için gereken koordinatlar gider.</p>
+<hr>
+<h2>4. Hata ayıklama paketi</h2>
+<p>Test sürümünde, bir sürüşten sonra <strong>siz isterseniz</strong> bir zip dosyası üretilebilir. İçinde şunlar olur: sürüşün GPS izi, hareket sensörü verisi, ekran görüntüleri, hata kayıtları ve cihaz bilgisi.</p>
+<p><strong>Bu dosya kendiliğinden hiçbir yere gitmez.</strong> Yalnızca siz paylaş dediğinizde, seçtiğiniz uygulamaya (WhatsApp, e-posta vb.) gider.</p>
+<hr>
+<h2>5. Verileriniz ne kadar kalır</h2>
+<p>Sildiğiniz ana kadar. Uygulamayı kaldırdığınızda <strong>hepsi silinir</strong> — çünkü hepsi telefonunuzun içindedir. Bizde bir kopyası yoktur.</p>
+<p><strong>Android otomatik yedeklemesi kapalıdır.</strong> Android, uygulamaların verisini varsayılan olarak kullanıcının Google Drive'ına kopyalar. Clutch bunu kapatmıştır (<code>allowBackup=&quot;false&quot;</code>): sürüş kayıtlarınız Drive'a da çıkmaz.</p>
+<p>Bunun bir bedeli var ve açıkça söylüyoruz: <strong>telefon değiştirirseniz kayıtlarınız gelmez.</strong> Sürüş izlerinizin sessizce buluta kopyalanmasındansa bu tercih edildi.</p>
+<p>Hata kayıtlarında en fazla <strong>son 20 kayıt</strong> tutulur; yenisi geldiğinde en eski silinir.</p>
+<hr>
+<h2>6. Haklarınız</h2>
+<p>Verileriniz sizde olduğu için:</p>
+<ul>
+<li><strong>Erişim:</strong> kayıtlarınızı uygulamanın içinden görebilirsiniz.</li>
+<li><strong>Silme:</strong> kaydı uygulamadan silin ya da uygulamayı kaldırın.</li>
+<li><strong>Taşıma:</strong> hata ayıklama paketiyle ham verinizi dışarı alabilirsiniz.</li>
+</ul>
+<p>Bizden silmemizi istemenize gerek yok, çünkü bizde bir şey yok.</p>
+<hr>
+<h2>7. Çocuklar</h2>
+<p>Clutch <strong>13 yaşın altındaki çocuklara yönelik değildir</strong> ve onlardan bilerek veri toplamaz.</p>
+<p>Uygulama araç kullanan kişiler içindir.</p>
+<hr>
+<h2>8. Güvenlik</h2>
+<p>Veriler telefonunuzun uygulama alanında, işletim sisteminin koruması altında tutulur. Mapbox'a giden istekler <strong>HTTPS</strong> ile şifrelenir.</p>
+<hr>
+<h2>9. Bu politika değişirse</h2>
+<p>Değişiklik olursa bu sayfanın tarihi güncellenir. <strong>Verinizin telefondan çıkmasını gerektiren bir değişiklik olursa</strong> (örneğin ileride bir sıralama tablosu için sunucu eklenirse), bu <strong>açıkça sorulur ve onayınız alınmadan yapılmaz.</strong></p>
+<hr>
+<h2>10. KVKK ve GDPR</h2>
+<h3>Veri sorumlusu</h3>
+<p><strong>Ömer Adıgüzel</strong> — iletişim: bölüm 11.</p>
+<p>Clutch'ın sunucusu yoktur; verileriniz cihazınızda işlenir. Buna rağmen 6698 sayılı <strong>Kişisel Verilerin Korunması Kanunu</strong> anlamında veri sorumlusu yukarıdaki kişidir.</p>
+<h3>İşlemenin hukuki sebebi</h3>
+<p>Konum ve hareket verisi, <strong>açık rızanıza</strong> dayanılarak işlenir. Rıza, uygulamanın konum izni istediği anda verilir ve <strong>istediğiniz zaman geri alınabilir</strong>: cihaz ayarlarından konum iznini kapatmak yeterlidir. İzin kapalıyken uygulama sürüş kaydı yapamaz.</p>
+<p>Verinin bir kısmı (harita, rota, adres araması) hizmetin sunulabilmesi için Mapbox'a aktarılır — bkz. bölüm 3.</p>
+<h3>Yurt dışına aktarım</h3>
+<p>Mapbox yurt dışında yerleşiktir. Harita, rota ve adres araması için gereken koordinatlar bu nedenle <strong>yurt dışına aktarılır.</strong> Sürüş kaydınızın tamamı aktarılmaz; yalnızca ilgili işlem için gereken koordinatlar gider.</p>
+<h3>Haklarınız (KVKK m. 11 · GDPR m. 15–22)</h3>
+<p>Kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, düzeltilmesini veya silinmesini isteme, işlemeye itiraz etme ve verinizi taşınabilir biçimde alma haklarına sahipsiniz.</p>
+<p>Bu hakların çoğunu <strong>bizden bir şey istemeden</strong> kullanabilirsiniz, çünkü veri sizde: kayıtlarınızı uygulamadan görür, siler ya da hata ayıklama paketiyle dışarı alırsınız (bkz. bölüm 6).</p>
+<p>Yine de bir talebiniz olursa bölüm 11'deki adrese yazın. Başvurunuz en geç <strong>30 gün</strong> içinde sonuçlandırılır.</p>
+<p>Yanıttan memnun kalmazsanız <strong>Kişisel Verileri Koruma Kurumu'na</strong> (<a href="https://www.kvkk.gov.tr">https://www.kvkk.gov.tr</a>) şikâyette bulunabilirsiniz.</p>
+<hr>
+<h2>11. İletişim</h2>
+<p>Soru, silme talebi ya da şikâyet için: <a href="mailto:hobalago21@gmail.com">hobalago21@gmail.com</a></p>
+<footer>Bu sayfa <code>GIZLILIK.md</code> dosyasından üretilir. Uygulama: Clutch (<code>com.clutch.app</code>).</footer>
+</main>
+</body>
+</html>
