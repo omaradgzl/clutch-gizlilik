@@ -34,7 +34,19 @@
   h3 { font-size: 1rem; margin: 1.75rem 0 0.5rem; color: var(--soluk);
        text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
   p, li { margin: 0.75rem 0; }
-  ul { padding-left: 1.25rem; }
+  ul, ol { padding-left: 1.25rem; }
+  /*
+    Alıntı, politikanın KENDİ düzeltme notları için kullanılıyor ("Bu
+    paragraf ... değişti"). Metnin gövdesinden ayrılması gerekiyor: okur
+    bunun politikanın bir hükmü değil, politikanın tarihçesi olduğunu
+    görmeli. Renk yerine kenar çizgisi ve soluk metin — ikisi de karanlık
+    temada da ayakta kalıyor.
+  */
+  blockquote {
+    margin: 1.25rem 0; padding: 0.1rem 0 0.1rem 0.9rem;
+    border-left: 2px solid var(--cizgi); color: var(--soluk);
+  }
+  blockquote p { font-size: 0.94rem; }
   hr { border: 0; border-top: 1px solid var(--cizgi); margin: 2.5rem 0; }
   a { color: var(--vurgu); text-decoration-thickness: 1px; text-underline-offset: 2px; }
   a:focus-visible { outline: 2px solid var(--vurgu); outline-offset: 2px; border-radius: 2px; }
@@ -59,12 +71,22 @@
 <body>
 <main>
 <h1>Clutch — Gizlilik Politikası</h1>
-<p><strong>Son güncelleme:</strong> 28 Ağustos 2026 <strong>Uygulama:</strong> Clutch (<code>com.clutch.app</code>) <strong>Sorumlu:</strong> Ömer Adıgüzel — <a href="mailto:hobalago21@gmail.com">hobalago21@gmail.com</a></p>
+<p><strong>Son güncelleme:</strong> 2 Eylül 2026 <strong>Uygulama:</strong> Clutch (<code>com.clutch.app</code>) <strong>Sorumlu:</strong> Ömer Adıgüzel — <a href="mailto:omaradgzl0@gmail.com">omaradgzl0@gmail.com</a></p>
 <hr>
 <h2>Kısası</h2>
-<p>Clutch <strong>hesap istemez, reklam göstermez, analitik toplamaz ve verilerinizi kendi sunucularına göndermez</strong> — çünkü sunucusu yoktur.</p>
-<p>Sürüşleriniz, rotalarınız ve puanlarınız <strong>yalnızca telefonunuzda</strong> durur. Uygulamayı silerseniz hepsi silinir.</p>
-<p>Dışarıya çıkan tek şey <strong>harita hizmeti için gereken koordinatlardır</strong> ve o da haritayı çizmek, rotanızı yola oturtmak ve adres aramak içindir.</p>
+<p>Clutch <strong>reklam göstermez, analitik toplamaz, üçüncü taraf izleyici kullanmaz.</strong></p>
+<p><strong>Hesap isteğe bağlıdır.</strong> Girmezseniz uygulama tam olarak çalışır: sürersiniz, puanınızı görürsünüz, kendi hayaletinizle yarışırsınız. Bu hâlde sürüşleriniz <strong>yalnızca telefonunuzda</strong> durur; dışarı çıkan üç şey vardır:</p>
+<ol>
+<li>haritanın çizilmesi için gereken koordinatlar (bölüm 5),</li>
+<li><strong>uygulama çökerse çökme kaydı</strong> (bölüm 1.6 — içinde konum ve sürüş verisi yoktur),</li>
+<li>her açılışta sunucumuza gönderilen <strong>boş bir yoklama.</strong> Gövdesi yoktur, kimliğiniz yoktur, hiçbir tabloya yazılmaz; tek işi uyku modundaki sunucuyu uyandırmaktır. Yine de bir bağlantıdır ve bunun ne anlama geldiği bölüm 1.7'de yazılı.</li>
+</ol>
+<blockquote><p>Bu paragraf 1 Eylül 2026'da değişti. Öncesinde &quot;dışarı çıkan tek şey haritanın koordinatlarıdır&quot; yazıyordu; çökme kaydı gönderimi eklenince o cümle yanlış hâle geldi. 2 Eylül 2026'da yoklama isteği de eklendi: &quot;iki şey&quot; de eksik bir sayımdı.</p></blockquote>
+<p><strong>Giriş yaparsanız durum değişir ve bunu açıkça söylüyoruz:</strong> o andan itibaren her turunuzun <strong>ham kaydı — saniye saniye GPS noktaları — sunucumuza yüklenir ve orada saklanır.</strong> Ham GPS izi bir sürüş verisinden fazlasıdır: nereden kalktığınızı, nereye gittiğinizi, hangi saatte hangi yolu kullandığınızı gösterir. Ev adresiniz ve günlük rutininiz bu izin içindedir.</p>
+<p>Bir şey daha değişir: <strong>yayınlanmış bir rotada attığınız tur, o rotanın sıralamasını görebilenlere bir &quot;hayalet&quot; olarak açılır.</strong> Ham iziniz değil — koordinat içermeyen bir tempo eğrisi. Ayrıntısı ve sınırları bölüm 4, &quot;Başkasının hayaleti&quot;.</p>
+<p>Giriş bu yüzden isteğe bağlı bırakıldı. Yükleme, giriş yapmadan <strong>olmaz.</strong></p>
+<p>Sunucu: <a href="https://clutch-api-tender-fog-3448.fly.dev">https://clutch-api-tender-fog-3448.fly.dev</a> — Fly.io altyapısında, <strong>Frankfurt (Almanya)</strong> bölgesinde çalışır.</p>
+<p><strong>Bu politikanın önceki sürümü &quot;sunucumuz yoktur&quot; diyordu.</strong> 30 Ağustos 2026'da sunucu yayına alındı ve o cümle artık doğru değil; metin bu yüzden güncellendi. Önceki sürümün verdiği söz korunuyor: verinizin telefondan çıkması <strong>sizin açık bir eyleminize</strong> — giriş yapmanıza — bağlı.</p>
 <hr>
 <h2>1. Hangi verileri işliyoruz</h2>
 <h3>1.1 Konum (hassas ve yaklaşık)</h3>
@@ -73,79 +95,190 @@
 <p><strong>Nereye gider:</strong></p>
 <ul>
 <li><strong>Telefonunuzda kalır:</strong> sürüş kayıtlarınız (<code>runs/</code>) ve rotalarınız.</li>
-<li><strong>Mapbox'a gider:</strong> haritayı çizmek, çizdiğiniz rotayı yola oturtmak ve adres aramak için gereken koordinatlar. Ayrıntı: bölüm 3.</li>
+<li><strong>Mapbox'a gider:</strong> haritayı çizmek, çizdiğiniz rotayı yola oturtmak ve adres aramak için gereken koordinatlar. Ayrıntı: bölüm 5.</li>
+<li><strong>Giriş yaptıysanız sunucumuza gider:</strong> turun ham izinin tamamı. Ayrıntı: bölüm 3.</li>
+<li><strong>&quot;Yakındaki rotalar&quot; ararken sunucumuza gider:</strong> o anki konumunuz. Telefondan çıkmadan <strong>~111 metrelik bir kareye yuvarlanır</strong> — tam hassasiyetli konumunuz bu istekte telefonu hiç terk etmez. Sunucu bunu yalnızca yakındaki rotaları bulmak için kullanır ve <strong>hiçbir tabloya yazmaz.</strong></li>
 </ul>
 <h3>1.2 Hareket sensörleri (ivmeölçer / jiroskop)</h3>
 <p><strong>Neden:</strong> Sürüşünüzün akıcılığını ölçmek için. GPS saniyede bir örnek verir ve sert bir frenin tamamını kaçırır; hareket sensörü saniyede 50 örnek verir ve o anı görür.</p>
-<p><strong>Nereye gider:</strong> <strong>Yalnızca telefonunuzda kalır.</strong> Hiçbir yere gönderilmez.</p>
-<h3>1.3 Cihaz bilgisi</h3>
-<p>Marka, model ve işletim sistemi sürümü. <strong>Yalnızca hata ayıklama paketine</strong> yazılır (bölüm 4) ve o paketi siz göndermedikçe telefonunuzdan çıkmaz.</p>
-<p><strong>Kimlik bilgisi toplanmaz:</strong> cihaz kimliği, reklam kimliği, IMEI, telefon numarası, e-posta — hiçbiri okunmaz.</p>
-<h3>1.4 Hata kayıtları</h3>
-<p>Uygulama beklenmedik şekilde durursa hatanın metni ve teknik izi telefonunuza yazılır. İçinde konum yoktur, kimlik yoktur.</p>
-<p><strong>Yalnızca telefonunuzda kalır</strong> ve siz bir hata ayıklama paketi göndermeye karar vermedikçe çıkmaz.</p>
+<p><strong>Nereye gider:</strong> Telefonunuzda kalır; <strong>giriş yaptıysanız</strong> ham GPS iziyle <strong>aynı paketin içinde sunucumuza yüklenir</strong> (bölüm 3). Bu satır politikanın önceki sürümünde &quot;hiçbir yere gönderilmez&quot; diyordu — sunucu geldiğinde yanlış hâle geldi.</p>
+<h3>1.3 Rotalarınız</h3>
+<p>Rotanın <strong>adı</strong> ve <strong>çizgisinin koordinatları.</strong> Telefonda durur; giriş yaptıysanız, o rotada yapılan bir tur yüklenmeden önce rota da sunucuya gönderilir — turun hangi rotaya ait olduğu bilinmeden sıralama yapılamaz.</p>
+<p>Rota adını siz yazarsınız. <strong>&quot;Ev&quot;, &quot;İş&quot;, &quot;Annemin evi&quot; gibi bir ad koyarsanız o ad da sunucuya gider.</strong> Nötr bir ad seçmek sizin elinizde.</p>
+<p><strong>İki tür rota var ve aralarındaki fark önemli:</strong></p>
+<ul>
+<li><strong>Çizdiğiniz rota:</strong> haritaya kendi tıkladığınız noktalar ve bunların bilinen yollara oturtulmuş hâli. Bu bir <strong>niyettir</strong> — sürdüğünüz bir yol değil, sürmeyi planladığınız bir yol.</li>
+<li><strong>Sürüşten kaydettiğiniz rota:</strong> bir turu bitirip &quot;rotaya kaydet&quot; dediğinizde, rotanın çizgisi <strong>o turda gerçekten geçtiğiniz GPS noktalarıdır.</strong> Yani bu çizgi, adı ne olursa olsun, sürülmüş bir izdir.</li>
+</ul>
+<p><strong>İkisi de sunucuya olduğu gibi gider.</strong> Açıkça söylüyoruz: sürüşten kaydettiğiniz bir rotayı kullandığınızda, <strong>gerçekten geçtiğiniz yol</strong> sunucumuzda saklanır. Başlangıç noktası çoğu zaman bulunduğunuz yerdir — eviniz, işiniz. Bunu bilerek kullanın; rahatsızsanız rotayı sürüşten kaydetmek yerine haritaya kendiniz çizin, ya da girişsiz kullanın: hesap açmazsanız hiçbir rota sunucuya gitmez (bölüm 1'in başı).</p>
+<p>Gönderilen çizgi telefonunuzdakiyle <strong>aynı yoldur</strong>; yalnızca gövde boyutu için en çok 200 noktaya seyreltilir. Bu bir gizleme değil, veri boyutu tercihidir — 7 km'lik bir rota yaklaşık 35 metre aralıkla temsil edilir.</p>
+<p><strong>Neden saklanıyor:</strong> turun hangi rotaya ait olduğu bilinmeden sıralama yapılamaz, ve &quot;bu tur gerçekten bu rotada mı sürülmüş&quot; sorusunu sunucunun kendi çizgisiyle ölçmesi gerekir. Telefonun söylediğine güvenmiyoruz (bölüm 3).</p>
+<p><strong>Saklanmak ile yayınlanmak ayrı şeylerdir.</strong> Rotanız sunucuda durur ama <strong>varsayılan olarak özeldir</strong>: başka kullanıcılar onu göremez, &quot;yakındaki rotalar&quot; listesinde çıkmaz, sıralaması size kapalıdır. Bir rotayı başkalarının görmesini isterseniz <strong>ayrıca yayınlamanız</strong> gerekir; bu tek dokunuşluk bir onay değildir ve ne paylaştığınız o ekranda tekrar anlatılır. Yayından kaldırmak da her zaman mümkündür.</p>
+<h3>1.4 Hesap bilgileri — yalnızca giriş yaparsanız</h3>
+<p>Google ile giriş yaptığınızda, Google'ın imzaladığı kimlik belgesinden şunlar alınır ve sunucuda saklanır:</p>
+<div class="kaydir"><table><tr><th>ne</th><th>neden</th></tr><tr><td>Google kullanıcı kimliğiniz</td><td>hesabınızı tanımak için; e-posta değişse bile sabit kalan tek değer</td></tr><tr><td>e-posta adresiniz</td><td>iletişim alanı; hesabınızın anahtarı <strong>değildir</strong></td></tr><tr><td>e-postanın doğrulanmış olup olmadığı</td><td>doğrulanmamış adresle hesap ele geçirmeyi engellemek için</td></tr><tr><td>görünen adınız</td><td>sıralamada gösterilen ad (bölüm 4)</td></tr></table></div>
+<p><strong>Parola yoktur, saklanmaz.</strong> Girişi Google yapar; biz yalnızca belgenin gerçekten Google'dan geldiğini doğrularız.</p>
+<p>Oturum açıkken telefonunuzda iki anahtar durur — düz metin depoda değil, işletim sisteminin güvenli deposunda: 15 dakika yaşayan bir erişim anahtarı ve 60 gün yaşayan bir yenileme anahtarı. Yenileme anahtarının sunucudaki kopyası <strong>ham değil, özet</strong> olarak tutulur.</p>
+<h3>1.5 Cihaz bilgisi</h3>
+<p>Marka, model ve işletim sistemi sürümü.</p>
+<p>İki yere gider ve ikisi de sınırlı:</p>
+<ul>
+<li><strong>Hata ayıklama paketine</strong> tam hâliyle yazılır (bölüm 6) ve o paketi siz göndermedikçe telefonunuzdan çıkmaz.</li>
+<li><strong>Çökme kaydıyla birlikte</strong> kısa hâli gönderilir — yalnızca işletim sistemi ve sürümü (<code>android 14</code> gibi), marka ve model DEĞİL. Çökmelerin çoğu platforma özgü ve bu satır olmadan &quot;yalnızca eski Android'lerde çöküyor&quot; cümlesi kurulamaz.</li>
+</ul>
+<blockquote><p>Bu bölüm 1 Eylül 2026'da değişti. Öncesinde &quot;o paketi siz göndermedikçe telefonunuzdan çıkmaz&quot; yazıyordu ve çökme kaydı gönderimiyle birlikte o cümle yanlış hâle geldi.</p></blockquote>
+<p><strong>Kimlik bilgisi toplanmaz:</strong> cihaz kimliği, reklam kimliği, IMEI, telefon numarası — hiçbiri okunmaz.</p>
+<h3>1.6 Çökme kayıtları</h3>
+<p>Uygulama beklenmedik şekilde durursa hatanın metni ve teknik izi telefonunuza yazılır. <strong>Bu kayıt bir sonraki açılışta bize gönderilir.</strong></p>
+<blockquote><p>Bu bölüm 1 Eylül 2026'da değişti. Öncesinde &quot;yalnızca telefonunuzda kalır&quot; yazıyordu ve o cümle artık doğru değil. Değişikliğin sebebi şu: uygulama birkaç kişinin telefonunda test edilecek ve biri çöktüğünde bunu söylemek zorunda kalmamalı. Söylenmeyen bir çökme, olmamış bir çökme gibi görünür.</p></blockquote>
+<p><strong>Gönderilen tam liste — fazlası yok:</strong></p>
+<div class="kaydir"><table><tr><th>ne</th><th>örnek</th></tr><tr><td>çökmenin zamanı</td><td>2026-09-01T14:32:11Z</td></tr><tr><td>uygulamayı öldürdü mü</td><td>evet / hayır</td></tr><tr><td>hata sınıfı ve mesajı</td><td><code>TypeError: x is not a function</code></td></tr><tr><td>teknik iz (stack)</td><td><code>at Foo (bundle.js:1:2)</code></td></tr><tr><td>uygulama sürümü</td><td>0.9.0</td></tr><tr><td>hangi ekran</td><td><code>run/[id]/drive</code></td></tr><tr><td>cihaz künyesi</td><td><code>android 14</code></td></tr><tr><td>kurulum kimliği</td><td>rastgele bir numara — aşağıya bakın</td></tr></table></div>
+<p><strong>İçinde ne YOK:</strong> konum yok, sürüş kaydınız yok, rotanız yok, adınız yok, e-postanız yok. Hesabınız varsa bile çökme kaydı <strong>hesabınıza bağlanmadan</strong> gönderilir.</p>
+<p><strong>Kurulum kimliği nedir:</strong> uygulama ilk açıldığında üretilen rastgele bir numara. Tek işi aynı çökmenin iki kez sayılmasını önlemek — &quot;kaç kişide çöktü&quot; sorusunun cevaplanabilmesi için. Reklam kimliği değil, cihaz seri numarası değil. Uygulamayı silerseniz gider ve başka hiçbir sistemle eşleşmez. <strong>Yalnızca çökme kayıtlarıyla birlikte gider;</strong> sürüş yüklemeniz, sıralama ve ekip istekleri onu hiç görmez.</p>
+<p>Gönderim başarısız olursa kayıt telefonunuzda kalır ve bir sonraki açılışta tekrar denenir.</p>
+<h3>1.7 Sunucu günlükleri</h3>
+<p>Sunucu her isteği kaydeder: yöntem, adres, sonuç kodu ve bağlantının geldiği adres.</p>
+<p>Burada ölçülmüş bir ayrıntı var ve olduğu gibi yazıyoruz: sunucu, önündeki vekile güvenecek şekilde ayarlanmadığı için günlüğe düşen adres <strong>sizin IP adresiniz değil, Fly altyapısının iç adresidir.</strong> Yani uygulamanın kendi kaydında IP adresiniz yer almaz.</p>
+<p>Bu, IP adresinizin hiç görülmediği anlamına <strong>gelmez:</strong> bağlantıyı sonlandıran Fly altyapısı onu kaçınılmaz olarak görür ve kendi işletim kayıtlarında tutabilir. Bunun üzerinde bizim denetimimiz yok.</p>
 <hr>
 <h2>2. Hangi verileri işlemiyoruz</h2>
 <ul>
-<li>Hesap, kullanıcı adı, şifre — <strong>yok</strong></li>
 <li>Reklam ve reklam kimliği — <strong>yok</strong></li>
-<li>Analitik, kullanım takibi, üçüncü taraf izleyici — <strong>yok</strong></li>
+<li>Analitik, kullanım takibi, üçüncü taraf izleyici — <strong>yok.</strong> Haritayı çizen Mapbox kitaplığı kendi kullanım telemetrisini varsayılan olarak açık getirir; uygulama onu açılışta <strong>kapatıyor.</strong></li>
+</ul>
+<blockquote><p>Çökme kayıtları (bölüm 1.6) bize gönderilir ama bunlar analitik değildir: uygulamayı nasıl kullandığınızı değil, <strong>nerede kırıldığını</strong> söylerler ve yalnızca uygulama beklenmedik şekilde durduğunda doğarlar. Üçüncü bir tarafa da gitmezler — Sentry, Crashlytics gibi bir servis kullanılmıyor.</p></blockquote>
+<ul>
+<li>Parola — <strong>yok</strong> (girişi Google yapar)</li>
 <li>Rehber, arama geçmişi, mesaj, fotoğraf, dosya erişimi — <strong>yok</strong></li>
 <li>Ödeme bilgisi — <strong>yok</strong></li>
+<li>Arka planda konum — <strong>yok</strong> (izin uygulamanın manifestinde bile bulunmuyor)</li>
 </ul>
 <hr>
-<h2>3. Üçüncü taraf: Mapbox</h2>
-<p>Clutch haritayı, rota hesabını ve adres aramasını <strong>Mapbox</strong> üzerinden yapar. Mapbox'a giden şeyler:</p>
+<h2>3. Sunucuya tam olarak ne gider</h2>
+<p>Aşağıdaki tablo, uygulamanın sunucuya yaptığı <strong>bütün</strong> isteklerdir — yirmi üç ucun hepsi.</p>
+<p><strong>İkisi giriş yapmadan da gider:</strong> çökme kaydı (sebebi ve içeriği bölüm 1.6'da yazılı) ve sunucunun ayakta olup olmadığını soran boş yoklama. Kalan yirmi bir uç giriş ister.</p>
+<div class="kaydir"><table><tr><th>ne zaman</th><th>ne gider</th><th>sunucuda ne kalır</th></tr><tr><td>giriş</td><td>Google'ın imzaladığı kimlik belgesi</td><td>Google kimliğiniz, e-postanız, görünen adınız, oturum kaydı</td></tr><tr><td>oturum tazeleme</td><td>yenileme anahtarı</td><td>anahtarın özeti ve oturum zamanları</td></tr><tr><td>çıkış</td><td>yenileme anahtarı</td><td>oturumun kapatıldığı işareti</td></tr><tr><td>rota yüklenirken</td><td>rotanın adı ve çizgisinin koordinatları — sürülmüş rotada <strong>gerçekten geçtiğiniz yol</strong> (bölüm 1.3)</td><td>aynısı</td></tr><tr><td>tur yüklenirken</td><td>turun <strong>ham izi</strong></td><td>sıkıştırılmış hâlde, aynısı</td></tr><tr><td><strong>çökme sonrası ilk açılış</strong> (giriş gerekmez)</td><td>hatanın metni, teknik izi, uygulama sürümü, hangi ekran, cihaz künyesi, kurulum kimliği — <strong>konum ve sürüş verisi YOK</strong> (bölüm 1.6)</td><td>aynısı, hesabınıza bağlanmadan</td></tr><tr><td>hesap bilgisi okunurken</td><td>yalnızca oturum anahtarınız</td><td>yeni veri yazılmaz</td></tr><tr><td>görünen ad değiştirilirken</td><td>yeni ad</td><td>adınız (eskisinin yerine)</td></tr><tr><td>rota yayınlanırken ya da geri çekilirken</td><td>rotanın kimliği ve yeni görünürlük</td><td>rotanın görünürlüğü</td></tr><tr><td>bir rota okunurken</td><td>rotanın kimliği</td><td>yeni veri yazılmaz</td></tr><tr><td><strong>yakındaki rotalar aranırken</strong></td><td><strong>bulunduğunuz konum</strong> — telefonda ~111 m'lik bir kareye yuvarlanmış hâlde — ve arama yarıçapı</td><td><strong>hiçbir şey</strong>: sorgu bir tabloya yazılmaz (bölüm 1.1)</td></tr><tr><td>sıralama listesi okunurken</td><td>rotanın kimliği</td><td>yeni veri yazılmaz</td></tr><tr><td><strong>başkasının hayaleti alınırken</strong></td><td>rotanın ve turun kimliği</td><td>yeni veri yazılmaz (bölüm 4)</td></tr><tr><td>ekip kurulurken</td><td>ekibin adı ve etiketi</td><td>ekip kaydı ve sizin kurucu olduğunuz</td></tr><tr><td>ekibe katılırken</td><td>davet kodu</td><td>üyelik kaydınız ve katılma zamanınız</td></tr><tr><td>ekipten ayrılırken</td><td>yalnızca oturum anahtarınız</td><td>üyelik kaydınız silinir</td></tr><tr><td>ekibiniz okunurken</td><td>yalnızca oturum anahtarınız</td><td>yeni veri yazılmaz</td></tr><tr><td>bir rotanın ekip sıralaması okunurken</td><td>rotanın kimliği</td><td>yeni veri yazılmaz</td></tr><tr><td>premium hakkınız sorulurken</td><td>yalnızca oturum anahtarınız</td><td>yeni veri yazılmaz</td></tr><tr><td><strong>satın alma doğrulanırken</strong></td><td>mağazanın verdiği satın alma belgesi</td><td>mağaza işlem kimliği, ürün, bitiş tarihi ve mağazanın <strong>ham cevabı</strong></td></tr><tr><td><strong>sunucu yoklaması</strong> (giriş gerekmez)</td><td>hiçbir şey</td><td>hiçbir şey</td></tr><tr><td>hesap silinirken</td><td>yalnızca oturum anahtarınız — yeni hiçbir veri gitmez</td><td>hesabınız <strong>silinmiş işaretlenir</strong>, oturumlar kapanır, rotalarınız yayından kalkar; kalan satırlar 30 gün içinde imha edilir (bölüm 8)</td></tr></table></div>
+<p><strong>Ham iz</strong> şunlardan oluşur: her GPS örneği için zaman, <strong>enlem ve boylam,</strong> hız, yön ve konum hata payı (saniyede yaklaşık bir örnek); her hareket örneği için zaman, üç eksende ivme ve üç eksende dönüş (saniyede yaklaşık 50 örnek). Turun başlangıç zamanı da gider.</p>
+<p><strong>Neden ham iz gidiyor:</strong> puanı sunucu kendisi hesaplar. Telefonun bildirdiği puana güvenilseydi, değiştirilmiş bir uygulama sıralamaya istediği sayıyı yazardı. Sunucunun kendi hesabını yapabilmesi için izin kendisi gerekiyor. Bedeli açık: <strong>konum geçmişiniz sunucuya çıkıyor.</strong> Giriş bu yüzden isteğe bağlı.</p>
+<p><strong>Sıra:</strong> tur kaydı önce diske yazılır, sonra bir kuyruğa girer ve yükleme arka planda yapılır. Giriş yapmadıysanız kuyruk <strong>bekler.</strong></p>
+<p>Bunun açıkça söylenmesi gereken sonucu şudur: girişten <strong>önce</strong> kaydettiğiniz turlar kuyrukta durur ve <strong>giriş yaptığınız anda onlar da yüklenir.</strong> Yüklenmesini istemediğiniz bir tur varsa, giriş yapmadan önce uygulamadan silin.</p>
+<hr>
+<h2>4. Sıralama listesi</h2>
+<p>Bir rotanın sıralama listesini görmek için <strong>giriş yapmış olmanız gerekir.</strong> Ayrıca sıralama, ücretli özelliklerden biridir: hesap açtıktan sonraki <strong>7 gün boyunca ücretsiz</strong> açıktır, sonrasında abonelik ister. Sürmek, puan almak ve kendi hayaletinizle yarışmak her zaman ücretsizdir.</p>
+<p><strong>Yalnızca görebildiğiniz rotaların listesini okuyabilirsiniz:</strong> kendi rotalarınız ve başkalarının <strong>yayınladığı</strong> rotalar. Başkasının özel bir rotasının listesi, kimliğini bilseniz bile size kapalıdır — o rota sizin için &quot;yok&quot; görünür.</p>
+<p>Listede <strong>görünen ad, puan, tur süresi ve turun tarihi</strong> bulunur. Ham iziniz listede yer almaz. Kalıcı kullanıcı kimliğiniz de yer almaz: liste yalnızca hangi satırın <strong>size ait</strong> olduğunu söyler, kim olduğunuzu değil.</p>
+<h3>Görünen adınız</h3>
+<p>Hesap açtığınızda size <strong><code>Sürücü-A3F1</code> gibi kimliksiz bir ad</strong> verilir ve bunu Garaj sekmesinden dilediğiniz zaman değiştirebilirsiniz.</p>
+<p><strong>Bu ad e-postanızdan TÜRETİLMEZ.</strong> Bir ara sürümde e-postanın <code>@</code> işaretinden önceki bölümü kullanılıyordu; Türkiye'de bu çoğu zaman ad-soyaddır ve sıralamada herkese görünüyordu, yani kimse onay vermeden gerçek adını yayınlamış oluyordu. Kaldırıldı.</p>
+<p>Koyduğunuz ad <strong>herkese görünür.</strong> Gerçek adınızı yazmak zorunda değilsiniz ve öneriyoruz da: bir takma ad seçin.</p>
+<h3>Başkasının hayaleti</h3>
+<p>Sıralamada bir sürücüye dokunup <strong>onun turuyla yarışabilirsiniz.</strong> Bunun anlamı şudur: yayınlanmış bir rotada attığınız tur, o rotanın sıralamasını görebilen kullanıcılara bir <strong>&quot;hayalet&quot;</strong> olarak açılır.</p>
+<p>Açılan şey <strong>ham iziniz değildir.</strong> Gönderilen tek şey bir eğridir: hareketinizin kaçıncı saniyesinde ne kadar yol almış olduğunuz — en fazla 600 nokta — ve görünen adınız. <strong>Bu eğride koordinat yoktur.</strong> Hayalet karşı tarafın ekranında, o rotanın zaten yayınlanmış olan kendi çizgisi üzerine oturtulur.</p>
+<p>Yine de açıkça söylenmesi gereken şu: karşı taraf, sizin o rotada <strong>hangi anda ne kadar ilerlemiş olduğunuzu</strong> görür, yani temponuzu. Duruşlarınız zaman ekseninden düşüldüğü için nerede ve ne kadar beklediğiniz bu eğriden <strong>okunamaz.</strong> Turun takvim saati de gönderilmez.</p>
+<p><strong>Kararın kimde olduğu önemli:</strong> bir rotayı siz yayınlarsanız, o rotada sizin turunuz hayalet olur. Ama <strong>başkasının yayınladığı</strong> bir rotada tur atarsanız, o turdan üretilen hayalet de açılır — rotayı yayınlama kararı sizin değil, rotanın sahibinindir. Başkasının rotasında tur atmak, temponuzun o rotayı görebilenlere açılmasını kabul etmek demektir.</p>
+<p>Hesabınızı silerseniz turlarınız hayalet olarak <strong>artık servis edilmez.</strong></p>
+<h3>Rotanın çizgisi</h3>
+<p>Rota çizginiz sıralama listesinde yer almaz. Ama sunucu onu <strong>okur</strong>: bir turun gerçekten o rotada sürülüp sürülmediğini ölçmek için rota çizgisiyle sürüş izini karşılaştırır. Bu ölçüm sunucunun kendi kaydında kalır.</p>
+<p>Çizginin <strong>başkalarına görünmesi</strong> ayrı bir şeydir ve yalnızca o rotayı yayınlarsanız olur (bölüm 1.3).</p>
+<h2>5. Üçüncü taraflar</h2>
+<h3>Mapbox — harita, rota hesabı, adres araması</h3>
 <div class="kaydir"><table><tr><th>ne zaman</th><th>ne gider</th></tr><tr><td>harita görüntülenirken</td><td>baktığınız harita bölgesinin koordinatları</td></tr><tr><td>rota çizerken</td><td>koyduğunuz noktaların koordinatları</td></tr><tr><td>adres ararken</td><td>yazdığınız arama metni ve yaklaşık konumunuz</td></tr></table></div>
 <p>Mapbox bu verileri kendi gizlilik politikası kapsamında işler: <a href="https://www.mapbox.com/legal/privacy">https://www.mapbox.com/legal/privacy</a></p>
 <p><strong>Sürüş kaydınızın tamamı Mapbox'a gitmez</strong> — yalnızca yukarıdaki üç durumda, o işlem için gereken koordinatlar gider.</p>
+<h3>Google — yalnızca giriş yaparsanız</h3>
+<p>Girişi Google yapar; Google, Clutch'a giriş yaptığınızı doğal olarak bilir. Google'ın kendi politikası: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+<h3>Fly.io — sunucunun çalıştığı yer</h3>
+<p>Sunucu ve veritabanı Fly.io altyapısında, <strong>Frankfurt (Almanya)</strong> bölgesinde çalışır. Fly.io bizim adımıza barındırma yapar; veriyi kendi amaçları için kullanmaz. Politikası: <a href="https://fly.io/legal/privacy-policy/">https://fly.io/legal/privacy-policy/</a></p>
 <hr>
-<h2>4. Hata ayıklama paketi</h2>
+<h2>6. Hata ayıklama paketi</h2>
 <p>Test sürümünde, bir sürüşten sonra <strong>siz isterseniz</strong> bir zip dosyası üretilebilir. İçinde şunlar olur: sürüşün GPS izi, hareket sensörü verisi, ekran görüntüleri, hata kayıtları ve cihaz bilgisi.</p>
 <p><strong>Bu dosya kendiliğinden hiçbir yere gitmez.</strong> Yalnızca siz paylaş dediğinizde, seçtiğiniz uygulamaya (WhatsApp, e-posta vb.) gider.</p>
 <hr>
-<h2>5. Verileriniz ne kadar kalır</h2>
-<p>Sildiğiniz ana kadar. Uygulamayı kaldırdığınızda <strong>hepsi silinir</strong> — çünkü hepsi telefonunuzun içindedir. Bizde bir kopyası yoktur.</p>
+<h2>7. Verileriniz ne kadar kalır</h2>
+<h3>Telefonunuzda</h3>
+<p>Sildiğiniz ana kadar. Uygulamayı kaldırdığınızda <strong>telefondaki her şey silinir.</strong></p>
 <p><strong>Android otomatik yedeklemesi kapalıdır.</strong> Android, uygulamaların verisini varsayılan olarak kullanıcının Google Drive'ına kopyalar. Clutch bunu kapatmıştır (<code>allowBackup=&quot;false&quot;</code>): sürüş kayıtlarınız Drive'a da çıkmaz.</p>
 <p>Bunun bir bedeli var ve açıkça söylüyoruz: <strong>telefon değiştirirseniz kayıtlarınız gelmez.</strong> Sürüş izlerinizin sessizce buluta kopyalanmasındansa bu tercih edildi.</p>
-<p>Hata kayıtlarında en fazla <strong>son 20 kayıt</strong> tutulur; yenisi geldiğinde en eski silinir.</p>
+<p>Çökme kayıtlarında en fazla <strong>son 20 kayıt</strong> tutulur; yenisi geldiğinde en eski silinir. Sunucuya başarıyla gönderilen kayıtlar telefondan silinir.</p>
+<h3>Sunucuda</h3>
+<p>Bunu da olduğu gibi yazıyoruz: <strong>sunucuda hiçbir şeyi otomatik silen bir iş yoktur.</strong> Yüklenen turlar, rotalar ve hesap kaydınız, siz silinmesini isteyene kadar durur. Süresi dolmuş oturum kayıtları da veritabanında kalır; süresi dolduktan sonra oturum açmak için kullanılamazlar.</p>
+<p><strong>Uygulamayı kaldırmak, sunucudaki kopyayı silmez.</strong> Telefondaki veri gider, yüklenmiş turlar kalır. Yani &quot;uygulamayı sil, her şey bitsin&quot; cümlesi artık doğru değildir. Sunucudaki kopyayı silmenin yolu ayrıdır ve uygulamanın içindedir: <strong>Garaj → Hesap → &quot;Hesabı sil&quot;</strong> (bölüm 8). Uygulamayı kaldırmadan önce hesabınızı silin.</p>
+<p><strong>Çökme kayıtları</strong> da silinmez ve hesabınıza bağlı değildir — hesabınızı silseniz bile kalırlar, çünkü zaten hesabınızla ilişkilendirilmemişlerdir (bölüm 1.6). İçlerinde sizi gösteren bir bilgi yoktur.</p>
+<p>Saklama süresine sınır konulmadı, çünkü sıralama listesinin anlamı geçmiş turlarda: bir turun tarihi geldiğinde kendiliğinden silinmesi listeyi sessizce boşaltırdı. Bunun karşılığında silme talebi <strong>elle ve eksiksiz</strong> işlenir.</p>
 <hr>
-<h2>6. Haklarınız</h2>
-<p>Verileriniz sizde olduğu için:</p>
+<h2>8. Silme</h2>
+<h3>Telefondan</h3>
+<p>Kaydı uygulamadan silin ya da uygulamayı kaldırın.</p>
+<h3>Sunucudan — uygulamanın içinden</h3>
+<p><strong>Garaj → Hesap → &quot;Hesabı sil&quot;.</strong> Geri alınamaz bir işlem olduğu için ekran neyi kaybedeceğinizi madde madde yazar ve onaylamak için bir kelime yazmanızı ister.</p>
+<p>Düğmeye bastığınız anda, tek bir işlemde şunlar olur:</p>
+<div class="kaydir"><table><tr><th>ne</th><th>ne zaman</th></tr><tr><td>hesabınız <strong>silinmiş olarak işaretlenir</strong></td><td>anında</td></tr><tr><td><strong>bütün oturumlarınız kapanır</strong> — her cihazda</td><td>anında</td></tr><tr><td><strong>yayınladığınız rotalar yayından kalkar</strong></td><td>anında</td></tr><tr><td><strong>Google (ve varsa Apple) bağınız koparılır</strong></td><td>anında</td></tr><tr><td>turlarınız ve rotalarınız <strong>her sıralamadan ve her listeden düşer</strong></td><td>anında</td></tr><tr><td>turlarınızın, rotalarınızın ve hesap kaydınızın <strong>kalıcı imhası</strong></td><td>en geç <strong>30 gün</strong></td></tr></table></div>
+<p>İşaretleme ile imha arasındaki fark önemli ve olduğu gibi yazıyoruz: o aralıkta satırlar veritabanında <strong>durur</strong>, ama hiçbir kullanıcı — siz dâhil — onları göremez ve hesabınız çalışmaz. KVKK m.13 talebin en geç 30 gün içinde sonuçlandırılmasını istiyor; imha o süre içinde yapılır.</p>
+<p><strong>Telefonunuzdaki sürüş kayıtlarınıza dokunulmaz.</strong> Hesap silme sunucudaki kopya içindir; cihazdaki kayıtlar sizde kalır ve onları siz silersiniz.</p>
+<p><strong>Aynı Google hesabıyla tekrar girerseniz sıfırdan yeni bir hesap açılır.</strong> Eski hesabınız geri gelmez: turlarınız, rotalarınız ve sıralamadaki yerleriniz kalıcı olarak gitmiştir.</p>
+<p>Bunun <strong>başkalarını da etkileyen</strong> bir sonucu var ve saklamıyoruz: sizin yayınladığınız bir rotada başkaları tur atmışsa, siz hesabınızı sildiğinizde o rota yayından kalkar ve o kişiler o rotanın sıralamasını artık göremez. Alternatifi — rotanızı ve dolayısıyla <strong>gerçekten geçtiğiniz yolu</strong> (bölüm 1.3) siz gittikten sonra da yayında bırakmak — kabul edilemezdi.</p>
+<h3>Sunucudan — e-posta ile de olur</h3>
+<p>Uygulamaya erişiminiz yoksa (telefonu kaybettiniz, uygulamayı kaldırdınız) bölüm 14'teki adrese yazın. Sonuç aynıdır ve en geç <strong>30 gün</strong> içinde sonuçlandırılır.</p>
+<hr>
+<h2>9. Haklarınız</h2>
 <ul>
-<li><strong>Erişim:</strong> kayıtlarınızı uygulamanın içinden görebilirsiniz.</li>
-<li><strong>Silme:</strong> kaydı uygulamadan silin ya da uygulamayı kaldırın.</li>
+<li><strong>Erişim:</strong> kayıtlarınızı uygulamanın içinden görebilirsiniz. Sunucudaki kopyanın tamamını isterseniz bölüm 14'teki adrese yazın.</li>
+<li><strong>Silme:</strong> uygulamanın içinden, Garaj → Hesap → &quot;Hesabı sil&quot; (bölüm 8).</li>
 <li><strong>Taşıma:</strong> hata ayıklama paketiyle ham verinizi dışarı alabilirsiniz.</li>
+<li><strong>Düzeltme:</strong> görünen adınızı Garaj → Hesap'tan istediğiniz zaman değiştirebilirsiniz (bölüm 4).</li>
 </ul>
-<p>Bizden silmemizi istemenize gerek yok, çünkü bizde bir şey yok.</p>
 <hr>
-<h2>7. Çocuklar</h2>
+<h2>10. Çocuklar</h2>
 <p>Clutch <strong>13 yaşın altındaki çocuklara yönelik değildir</strong> ve onlardan bilerek veri toplamaz.</p>
 <p>Uygulama araç kullanan kişiler içindir.</p>
 <hr>
-<h2>8. Güvenlik</h2>
-<p>Veriler telefonunuzun uygulama alanında, işletim sisteminin koruması altında tutulur. Mapbox'a giden istekler <strong>HTTPS</strong> ile şifrelenir.</p>
+<h2>11. Güvenlik</h2>
+<ul>
+<li>Telefondaki veriler işletim sisteminin uygulama alanında tutulur; oturum anahtarları işletim sisteminin güvenli deposundadır.</li>
+<li>Mapbox'a ve sunucumuza giden <strong>bütün istekler HTTPS</strong> ile şifrelenir; sunucu şifresiz bağlantıyı kabul etmez.</li>
+<li>Yenileme anahtarı sunucuda ham değil özet olarak tutulur: veritabanı sızarsa özet, oturum açmaya yaramaz.</li>
+<li>Bir oturum anahtarının çalınıp yeniden kullanıldığı tespit edilirse o oturum zinciri kapatılır.</li>
+<li>Yüklenen <strong>ham izi</strong> yalnızca sunucu ve sizin hesabınız görür; hiçbir uç ham iz (koordinatlar) döndürmez. Ondan <strong>türetilen</strong> koordinatsız zaman/mesafe eğrisi ise, yayınlanmış bir rotada sürdüyseniz o rotayı görebilenlere açılır — bölüm 4, &quot;Başkasının hayaleti&quot;.</li>
+<li><strong>İstek hızı sınırlıdır.</strong> Giriş, tur yükleme, &quot;yakındaki rotalar&quot; ve ad değiştirme uçlarında dakikada/on dakikada kabul edilen istek sayısına bir tavan var; tavanı aşan istek reddedilir ve uygulama sonra yeniden dener. Sayaç yalnızca <strong>sunucunun belleğinde</strong> tutulur: hiçbir tabloya, hiçbir günlüğe yazılmaz ve sunucu her yeniden başladığında sıfırlanır. Sayacın saydığı şey ya hesabınızın kimliği ya da bağlantının geldiği adrestir — ve o adres, bölüm 1.7'de yazdığımız gibi sizin IP adresiniz değil, Fly altyapısının iç adresidir.</li>
+</ul>
 <hr>
-<h2>9. Bu politika değişirse</h2>
-<p>Değişiklik olursa bu sayfanın tarihi güncellenir. <strong>Verinizin telefondan çıkmasını gerektiren bir değişiklik olursa</strong> (örneğin ileride bir sıralama tablosu için sunucu eklenirse), bu <strong>açıkça sorulur ve onayınız alınmadan yapılmaz.</strong></p>
+<h2>12. Bu politika değişirse</h2>
+<p>Değişiklik olursa bu sayfanın tarihi güncellenir. <strong>Verinizin telefondan çıkmasını gerektiren yeni bir değişiklik olursa, bu açıkça sorulur ve onayınız alınmadan yapılmaz.</strong> Sunucuya yükleme de bu kurala uyuyor: giriş yapmadığınız sürece hiçbir tur yüklenmez.</p>
+<h3>2 Eylül 2026</h3>
+<p>Bu sürümde düzeltilenler. Hepsi metnin kendisiyle ilgili: uygulama söylenenden fazlasını yapıyordu ve metin geride kalmıştı.</p>
+<ul>
+<li><strong>Başkasının hayaleti</strong> anlatıldı (bölüm 4). Yayınlanmış bir rotada attığınız turdan üretilen koordinatsız tempo eğrisinin başka kullanıcılara açıldığı hiçbir yerde yazmıyordu.</li>
+<li>Bölüm 11'deki &quot;yüklenen izi yalnızca sunucu ve sizin hesabınız görür&quot; cümlesi <strong>yanlış hâle gelmişti;</strong> düzeltildi.</li>
+<li>Bölüm 3'ün tablosu kendini &quot;bütün istekler&quot; diye ilan ediyordu ama yirmi üç ucun <strong>yedisini</strong> yazıyordu. Eksik on altı satır eklendi — aralarında ekip uçları, satın alma ve yakındaki rotalar araması var.</li>
+<li><strong>Yakındaki rotalar</strong> ararken konumunuzun sunucuya gittiği bölüm 1.1'de yazmıyordu. Yazıldı; konumun telefondan çıkmadan yuvarlandığı da.</li>
+<li>&quot;Kısası&quot;ndaki <strong>&quot;dışarı çıkan iki şey&quot;</strong> sayımı eksikti: her açılışta bir yoklama isteği de gidiyor. Üçe çıkarıldı.</li>
+<li><strong>Çökme kaydının ve kurulum kimliğinin hukuki sebebi</strong> bölüm 13'te yoktu; yazıldı. Satın alma kayıtlarınınki de.</li>
+<li>Bölüm 2 &quot;üçüncü taraf izleyici yok&quot; diyordu ama harita kitaplığının telemetrisi kapatılmıyordu. <strong>Uygulama artık kapatıyor</strong> — cümle değiştirilmedi, kod cümleye uyduruldu.</li>
+</ul>
+<p>Aynı gün uygulamada düzeltilen bir şey daha var ve buraya da yazılması gerekiyor: <strong>hesabını silen bir kullanıcının turu</strong> hayalet olarak servis edilmeye devam ediyordu. Artık edilmiyor.</p>
 <hr>
-<h2>10. KVKK ve GDPR</h2>
+<h2>13. KVKK ve GDPR</h2>
 <h3>Veri sorumlusu</h3>
-<p><strong>Ömer Adıgüzel</strong> — iletişim: bölüm 11.</p>
-<p>Clutch'ın sunucusu yoktur; verileriniz cihazınızda işlenir. Buna rağmen 6698 sayılı <strong>Kişisel Verilerin Korunması Kanunu</strong> anlamında veri sorumlusu yukarıdaki kişidir.</p>
+<p><strong>Ömer Adıgüzel</strong> — iletişim: bölüm 14.</p>
 <h3>İşlemenin hukuki sebebi</h3>
-<p>Konum ve hareket verisi, <strong>açık rızanıza</strong> dayanılarak işlenir. Rıza, uygulamanın konum izni istediği anda verilir ve <strong>istediğiniz zaman geri alınabilir</strong>: cihaz ayarlarından konum iznini kapatmak yeterlidir. İzin kapalıyken uygulama sürüş kaydı yapamaz.</p>
-<p>Verinin bir kısmı (harita, rota, adres araması) hizmetin sunulabilmesi için Mapbox'a aktarılır — bkz. bölüm 3.</p>
+<p>Konum ve hareket verisi <strong>açık rızanıza</strong> dayanılarak işlenir. Rıza, uygulama konum izni istediği anda verilir ve <strong>istediğiniz zaman geri alınabilir:</strong> cihaz ayarlarından konum iznini kapatmak yeterlidir. İzin kapalıyken uygulama sürüş kaydı yapamaz.</p>
+<p>Verinin sunucuya yüklenmesi <strong>ayrı bir açık rızaya</strong> dayanır: giriş yapma eyleminiz. Giriş yapmazsanız yükleme olmaz; çıkış yaparsanız yükleme durur.</p>
+<p>Hesap bilgileri (kimlik ve e-posta) sıralama hizmetinin sunulabilmesi için işlenir.</p>
+<p>Çökme kayıtları (bölüm 1.6) <strong>meşru menfaat</strong> kapsamında işlenir: uygulamanın çökmesini gidermek. Bu kayıt <strong>giriş yapmadan da</strong> gider ve hesabınıza bağlanmaz; içinde konum ve sürüş verisi yoktur. Yanında giden <strong>kurulum kimliği</strong>, uygulamayı her kurduğunuzda üretilen rastgele bir sayıdır: aynı çökmenin kaç cihazda olduğunu ayırt etmeye yarar, sizi tanımlamaya değil. Uygulamayı silip yeniden kurmak onu sıfırlar.</p>
+<p>Satın alma kayıtları <strong>sözleşmenin ifası</strong> kapsamında işlenir: aboneliğin geçerli olup olmadığını mağazaya sormadan bilebilmek için.</p>
 <h3>Yurt dışına aktarım</h3>
-<p>Mapbox yurt dışında yerleşiktir. Harita, rota ve adres araması için gereken koordinatlar bu nedenle <strong>yurt dışına aktarılır.</strong> Sürüş kaydınızın tamamı aktarılmaz; yalnızca ilgili işlem için gereken koordinatlar gider.</p>
+<p>İki aktarım var:</p>
+<div class="kaydir"><table><tr><th>kime</th><th>ne gider</th><th>nerede işlenir</th></tr><tr><td>Mapbox</td><td>harita, rota ve adres araması için gereken koordinatlar</td><td>yurt dışı</td></tr><tr><td>Fly.io — bizim sunucumuz</td><td>hesabınız, rotalarınız, turlarınızın ham izi</td><td>Frankfurt, Almanya</td></tr></table></div>
+<p>Kişisel Verileri Koruma Kurulu'nun Almanya için verilmiş bir <strong>yeterlilik kararı bulunmamaktadır.</strong> Bu aktarım bugün, giriş yaparken verdiğiniz <strong>açık rızaya</strong> dayanmaktadır (KVKK m. 9).</p>
+<p>Eksik tarafını da yazıyoruz: sürekli bir aktarım için doğru mekanizma, Kurul'a bildirilen bir <strong>standart sözleşme</strong> ya da benzeri uygun güvencedir ve bu henüz kurulmamıştır. Açık rıza, o güvence kurulana kadarki dayanaktır ve <strong>her zaman geri alınabilir</strong> — çıkış yapmak ve silme talep etmek yeterlidir.</p>
+<p>GDPR açısından veriler AB içinde (Almanya) işlenmektedir.</p>
 <h3>Haklarınız (KVKK m. 11 · GDPR m. 15–22)</h3>
 <p>Kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, düzeltilmesini veya silinmesini isteme, işlemeye itiraz etme ve verinizi taşınabilir biçimde alma haklarına sahipsiniz.</p>
-<p>Bu hakların çoğunu <strong>bizden bir şey istemeden</strong> kullanabilirsiniz, çünkü veri sizde: kayıtlarınızı uygulamadan görür, siler ya da hata ayıklama paketiyle dışarı alırsınız (bkz. bölüm 6).</p>
-<p>Yine de bir talebiniz olursa bölüm 11'deki adrese yazın. Başvurunuz en geç <strong>30 gün</strong> içinde sonuçlandırılır.</p>
+<p>Bir talebiniz olursa bölüm 14'teki adrese yazın. Başvurunuz en geç <strong>30 gün</strong> içinde sonuçlandırılır.</p>
 <p>Yanıttan memnun kalmazsanız <strong>Kişisel Verileri Koruma Kurumu'na</strong> (<a href="https://www.kvkk.gov.tr">https://www.kvkk.gov.tr</a>) şikâyette bulunabilirsiniz.</p>
 <hr>
-<h2>11. İletişim</h2>
-<p>Soru, silme talebi ya da şikâyet için: <a href="mailto:hobalago21@gmail.com">hobalago21@gmail.com</a></p>
+<h2>14. İletişim</h2>
+<p>Soru, silme talebi, ad değişikliği ya da şikâyet için: <a href="mailto:omaradgzl0@gmail.com">omaradgzl0@gmail.com</a></p>
 <footer>Bu sayfa <code>GIZLILIK.md</code> dosyasından üretilir. Uygulama: Clutch (<code>com.clutch.app</code>).</footer>
 </main>
 </body>
